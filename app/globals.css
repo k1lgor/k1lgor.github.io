@@ -1,42 +1,415 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+
+/* CSS Variables - Christmas Theme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Christmas Colors */
+  --crimson-red: #dc143c;
+  --deep-red: #8b0000;
+  --forest-green: #0b6623;
+  --pine-green: #228b22;
+  --gold: #ffd700;
+  --dark-gold: #daa520;
+  --cream: #fffaf0;
+  --snow-white: #ffffff;
+  --charcoal: #1a1a1a;
+  --dark-bg: #0a0a0a;
+
+  /* Gradients */
+  --gradient-red: linear-gradient(
+    135deg,
+    var(--deep-red) 0%,
+    var(--crimson-red) 100%
+  );
+  --gradient-green: linear-gradient(
+    135deg,
+    var(--forest-green) 0%,
+    var(--pine-green) 100%
+  );
+  --gradient-gold: linear-gradient(
+    135deg,
+    var(--dark-gold) 0%,
+    var(--gold) 100%
+  );
+  --gradient-festive: linear-gradient(
+    135deg,
+    var(--deep-red) 0%,
+    var(--crimson-red) 50%,
+    var(--gold) 100%
+  );
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+
+  /* Typography */
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-heading: "Playfair Display", Georgia, serif;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-glow-red: 0 0 30px rgba(220, 20, 60, 0.3);
+  --shadow-glow-gold: 0 0 30px rgba(255, 215, 0, 0.3);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(10px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Reset & Base Styles */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--dark-bg);
+  color: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Pattern */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(220, 20, 60, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(11, 102, 35, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 20%,
+      rgba(255, 215, 0, 0.05) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  background: var(--gradient-festive);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--gold);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--crimson-red);
+}
+
+p {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  margin-bottom: var(--spacing-sm);
+  color: var(--cream);
+  opacity: 0.9;
+}
+
 a {
-  color: inherit;
+  color: var(--gold);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--crimson-red);
+  text-shadow: var(--shadow-glow-gold);
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section {
+  padding: var(--spacing-xl) 0;
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-festive);
+  margin: var(--spacing-sm) auto 0;
+  border-radius: 2px;
+}
+
+/* Glass Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-red);
+  border-color: var(--gold);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.btn-primary {
+  background: var(--gradient-red);
+  color: var(--snow-white);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-red);
+  color: var(--snow-white);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+}
+
+.btn-secondary:hover {
+  background: var(--gold);
+  color: var(--charcoal);
+  transform: translateY(-2px);
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+  }
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(100px);
+    opacity: 0.3;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Snowflake */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: var(--snow-white);
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  z-index: 1000;
+  animation: snowfall linear infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+  }
+
+  .section {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--charcoal);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-red);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-festive);
+}
+
+/* Selection */
+::selection {
+  background: var(--crimson-red);
+  color: var(--snow-white);
+}
+
+::-moz-selection {
+  background: var(--crimson-red);
+  color: var(--snow-white);
 }

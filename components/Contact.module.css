@@ -1,0 +1,256 @@
+.contact {
+  padding: 6rem 2rem;
+  background: rgba(220, 20, 60, 0.03);
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  margin-bottom: 1rem;
+  color: #ffd700;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #dc143c, #ffd700);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fffaf0;
+  opacity: 0.8;
+  margin-bottom: 4rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.info {
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.infoTitle {
+  font-size: 1.8rem;
+  color: #dc143c;
+  margin-bottom: 1rem;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #fffaf0;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+
+.contactItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contactItem {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.contactItem:hover {
+  transform: translateX(10px);
+  border-color: #ffd700;
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.2);
+}
+
+.icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.contactItem h4 {
+  font-size: 1.1rem;
+  color: #ffd700;
+  margin-bottom: 0.25rem;
+  font-family: "Inter", sans-serif;
+}
+
+.contactItem a,
+.contactItem p {
+  font-size: 1rem;
+  color: #fffaf0;
+  opacity: 0.85;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.contactItem a:hover {
+  color: #ffd700;
+}
+
+.social {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 12px;
+}
+
+.socialTitle {
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+.socialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  color: #fffaf0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.socialLink:hover {
+  background: rgba(255, 215, 0, 0.1);
+  color: #ffd700;
+  transform: translateX(5px);
+}
+
+.socialIcon {
+  font-size: 1.5rem;
+}
+
+.formWrapper {
+  animation: fadeInRight 0.8s ease-out;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.formPlaceholder {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 16px;
+  padding: 3rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.formIcon {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.formPlaceholder h3 {
+  font-size: 1.8rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.formPlaceholder p {
+  font-size: 1.1rem;
+  color: #fffaf0;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.formNote {
+  font-size: 0.95rem !important;
+  opacity: 0.6 !important;
+  margin-top: 1rem;
+}
+
+@media (max-width: 968px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 4rem 1rem;
+  }
+
+  .formPlaceholder {
+    padding: 2rem;
+    min-height: 300px;
+  }
+
+  .formIcon {
+    font-size: 3.5rem;
+  }
+}

@@ -1,0 +1,209 @@
+.experience {
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  margin-bottom: 1rem;
+  color: #ffd700;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #dc143c, #ffd700);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fffaf0;
+  opacity: 0.8;
+  margin-bottom: 4rem;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #dc143c, #ffd700);
+  border-radius: 2px;
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 3rem;
+  animation: fadeInLeft 0.8s ease-out backwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.timelineMarker {
+  position: absolute;
+  left: -2.5rem;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ornament {
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(10deg);
+  }
+}
+
+.timelineContent {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-left: 2rem;
+  transition: all 0.3s ease;
+}
+
+.timelineContent:hover {
+  transform: translateX(10px);
+  border-color: #ffd700;
+  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+}
+
+.period {
+  display: inline-block;
+  background: linear-gradient(135deg, #dc143c, #ffd700);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.role {
+  font-size: 1.5rem;
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.company {
+  font-size: 1.2rem;
+  color: #dc143c;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #fffaf0;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.achievements {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.achievements li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: #fffaf0;
+  opacity: 0.85;
+}
+
+.checkmark {
+  color: #0b6623;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  background: rgba(11, 102, 35, 0.2);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #0b6623;
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 4rem 1rem;
+  }
+
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timelineMarker {
+    left: -2rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .ornament {
+    font-size: 1.5rem;
+  }
+
+  .timelineContent {
+    margin-left: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .role {
+    font-size: 1.3rem;
+  }
+
+  .company {
+    font-size: 1.1rem;
+  }
+}
