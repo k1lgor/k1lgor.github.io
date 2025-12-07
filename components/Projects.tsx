@@ -68,6 +68,24 @@ const projects = [
       "https://github.com/k1lgor/wifi-dos/blob/main/ezgif.com-gif-maker.gif",
     githubUrl: "https://github.com/k1lgor/wifi-dos",
   },
+  {
+    title: "Fantasy AI",
+    description:
+      "Intelligent FPL manager tool using GPT-4o for optimal squads, transfers & insights.",
+    tech: ["Python", "OpenAI API", "Streamlit"],
+    image: "/assets/fantasy-ai.png",
+    liveUrl: "https://fantasy-ai.streamlit.app/",
+    githubUrl: "https://github.com/k1lgor/fantasy-ai",
+  },
+  {
+    title: "Dragos IT Academy",
+    description:
+      "This project is a Flask-based web application for managing course enrollments, registrations, and course data.",
+    tech: ["Python", "Flask", "Vercel"],
+    image: "/assets/dragos-it-academy.png",
+    liveUrl: "https://flask-pink-delta.vercel.app/",
+    githubUrl: "https://github.com/k1lgor/flask",
+  },
 ];
 
 const ITEMS_PER_PAGE = 6;
