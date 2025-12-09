@@ -59,6 +59,23 @@ const projects = [
     githubUrl: "https://github.com/k1lgor/github-trends",
   },
   {
+    title: "Sassy GitHub Wrap",
+    description:
+      'A futuristic AI that roasts your coding habits. Sassy GitHub Wrap generates a "Spotify Wrapped" style summary of your profile using GPT-4o.',
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Vercel",
+      "GitHub API",
+      "OpenAI API",
+      "Tailwind CSS",
+    ],
+    image:
+      "https://github.com/k1lgor/sassy-github-wrap/raw/main/public/banner.png",
+    liveUrl: "https://sassy-github-wrap.vercel.app/",
+    githubUrl: "https://github.com/k1lgor/sassy-github-wrap",
+  },
+  {
     title: "WiFi DoS 👨‍💻",
     description:
       "A WiFi Denial of Service (DoS) attack tool that targets a specific WiFi network by disconnecting all connected clients.",
