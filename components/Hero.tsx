@@ -5,7 +5,7 @@ import styles from "./Hero.module.css";
 
 export default function Hero() {
   const [text, setText] = useState("");
-  const fullText = "Hi, I'm a Plamen Ivanov";
+  const fullText = "Hi, I'm Plamen Ivanov";
 
   useEffect(() => {
     let index = 0;
