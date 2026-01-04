@@ -24,6 +24,14 @@ const projects = [
     githubUrl: "https://github.com/k1lgor/secret-santa-paranoia",
   },
   {
+    title: "FPL Blog & Dashboard ⚽️",
+    description:
+      "A premium, data-driven platform for Fantasy Premier League (FPL) managers. This application leverages the official FPL API and OpenAI to provide real-time dashboards, automated scouting reports, and strategic insights.",
+    tech: ["Next.js", "TypeScript", "OpenAI API", "TailwindCSS", "Vercel"],
+    image: "/assets/fpl-blog.png",
+    liveUrl: "https://fpl-blog.site/",
+  },
+  {
     title: "Hook Forge",
     description:
       "🚀 Futuristic AI-Powered Hook Generator for X (Twitter) Writers.",
