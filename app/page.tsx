@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Snowfall from "@/components/Snowfall";
 import TechStack from "@/components/TechStack";
+import Preloader from "@/components/Preloader";
 import { themeConfig } from "@/theme-config";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
 
   return (
     <>
+      <Preloader />
       {isChristmas && <Snowfall />}
       <Navigation />
       <main>
