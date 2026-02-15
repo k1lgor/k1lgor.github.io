@@ -9,11 +9,14 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Snowfall from "@/components/Snowfall";
 import TechStack from "@/components/TechStack";
+import { themeConfig } from "@/theme-config";
 
 export default function Home() {
+  const isChristmas = themeConfig.theme === "christmas";
+
   return (
     <>
-      <Snowfall />
+      {isChristmas && <Snowfall />}
       <Navigation />
       <main>
         <Hero />

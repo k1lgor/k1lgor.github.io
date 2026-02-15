@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { themeConfig } from "@/theme-config";
 
 export const metadata: Metadata = {
   title: "Plamen Ivanov - Automation & Productivity Specialist",
@@ -43,8 +44,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const currentTheme = themeConfig.theme;
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme={currentTheme} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
