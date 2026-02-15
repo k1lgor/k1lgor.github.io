@@ -1,10 +1,17 @@
+import { themeConfig } from "@/theme-config";
 import styles from "./About.module.css";
 
 export default function About() {
+  const theme = themeConfig.theme;
+  const isChristmas = theme === "christmas";
+  const isPythonist = theme === "pythonist";
+
   return (
     <section id="about" className={styles.about}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>About Me</h2>
+        <h2 className={styles.sectionTitle}>
+          {isPythonist ? "class About(Me):" : "About Me"}
+        </h2>
 
         <div className={styles.content}>
           <div className={styles.imageWrapper}>
@@ -16,11 +23,17 @@ export default function About() {
                 className={styles.profileImage}
               />
             </div>
-            <div className={styles.decoration}>✨</div>
+            <div className={styles.decoration}>
+              {isPythonist ? "🐍" : isChristmas ? "✨" : "⚙️"}
+            </div>
           </div>
 
           <div className={styles.text}>
-            <h3 className={styles.subtitle}>Passionate DevOps Engineer</h3>
+            <h3 className={styles.subtitle}>
+              {isPythonist
+                ? "class Engineer(DevOps):"
+                : "Passionate DevOps Engineer"}
+            </h3>
             <p>
               I love automating manual processes and building tools that enhance
               team productivity. With expertise in containerization, CI/CD

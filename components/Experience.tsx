@@ -1,9 +1,10 @@
+import { themeConfig } from "@/theme-config";
 import styles from "./Experience.module.css";
 
 const experiences = [
   {
     company: "ICT Strypes",
-    role: "",
+    role: "Automation Specialist",
     period: "Jun 2022 - Present",
     description:
       "Spearheaded DevOps modernization and automation initiatives, significantly reducing operational overhead and accelerating deployment cycles through CI/CD optimization and custom tooling.",
@@ -41,12 +42,20 @@ const experiences = [
 ];
 
 export default function Experience() {
+  const theme = themeConfig.theme;
+  const isChristmas = theme === "christmas";
+  const isPythonist = theme === "pythonist";
+
   return (
     <section id="experience" className={styles.experience}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Work Experience</h2>
+        <h2 className={styles.sectionTitle}>
+          {isPythonist ? "class Experience(Journey):" : "Work Experience"}
+        </h2>
         <p className={styles.subtitle}>
-          My professional journey and key accomplishments
+          {isPythonist
+            ? "# Traceback of my professional career"
+            : "My professional journey and key accomplishments"}
         </p>
 
         <div className={styles.timeline}>
@@ -57,7 +66,9 @@ export default function Experience() {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className={styles.timelineMarker}>
-                <div className={styles.ornament}>🎄</div>
+                <div className={styles.ornament}>
+                  {isPythonist ? "📦" : isChristmas ? "🎄" : "⚡"}
+                </div>
               </div>
 
               <div className={styles.timelineContent}>

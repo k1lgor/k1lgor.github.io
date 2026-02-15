@@ -1,6 +1,6 @@
 .contact {
   padding: 6rem 2rem;
-  background: rgba(220, 20, 60, 0.03);
+  background: var(--color-bg-surface);
   position: relative;
 }
 
@@ -13,8 +13,9 @@
   text-align: center;
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   margin-bottom: 1rem;
-  color: #ffd700;
+  color: var(--color-secondary);
   position: relative;
+  font-family: var(--font-accent);
 }
 
 .sectionTitle::after {
@@ -22,7 +23,7 @@
   display: block;
   width: 100px;
   height: 4px;
-  background: linear-gradient(90deg, #dc143c, #ffd700);
+  background: var(--gradient-festive);
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -30,7 +31,7 @@
 .subtitle {
   text-align: center;
   font-size: 1.2rem;
-  color: #fffaf0;
+  color: var(--color-text-main);
   opacity: 0.8;
   margin-bottom: 4rem;
 }
@@ -58,15 +59,15 @@
 
 .infoTitle {
   font-size: 1.8rem;
-  color: #dc143c;
+  color: var(--color-primary);
   margin-bottom: 1rem;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-accent);
 }
 
 .description {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #fffaf0;
+  color: var(--color-text-main);
   opacity: 0.85;
   margin-bottom: 2rem;
 }
@@ -83,17 +84,17 @@
   gap: 1rem;
   align-items: flex-start;
   padding: 1.25rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  border-radius: 12px;
+  background: var(--color-bg-surface);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   transition: all 0.3s ease;
 }
 
 .contactItem:hover {
   transform: translateX(10px);
-  border-color: #ffd700;
-  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.2);
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-glow);
 }
 
 .icon {
@@ -103,15 +104,15 @@
 
 .contactItem h4 {
   font-size: 1.1rem;
-  color: #ffd700;
+  color: var(--color-secondary);
   margin-bottom: 0.25rem;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-main);
 }
 
 .contactItem a,
 .contactItem p {
   font-size: 1rem;
-  color: #fffaf0;
+  color: var(--color-text-main);
   opacity: 0.85;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -119,22 +120,22 @@
 }
 
 .contactItem a:hover {
-  color: #ffd700;
+  color: var(--color-secondary);
 }
 
 .social {
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  border-radius: 12px;
+  background: var(--color-bg-surface);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
 }
 
 .socialTitle {
   font-size: 1.2rem;
-  color: #ffd700;
+  color: var(--color-secondary);
   margin-bottom: 1rem;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-main);
 }
 
 .socialLinks {
@@ -150,20 +151,27 @@
   padding: 0.75rem 1rem;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  color: #fffaf0;
+  color: var(--color-text-main);
   text-decoration: none;
   transition: all 0.3s ease;
   font-weight: 500;
 }
 
 .socialLink:hover {
-  background: rgba(255, 215, 0, 0.1);
-  color: #ffd700;
+  background: var(--color-bg-surface);
+  color: var(--color-secondary);
   transform: translateX(5px);
 }
 
 .socialIcon {
   font-size: 1.5rem;
+}
+
+.listClose {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  font-family: var(--font-main);
 }
 
 .formWrapper {
@@ -182,10 +190,10 @@
 }
 
 .formPlaceholder {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  border-radius: 16px;
+  background: var(--color-bg-surface);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   padding: 3rem;
   text-align: center;
   height: 100%;
@@ -215,14 +223,14 @@
 
 .formPlaceholder h3 {
   font-size: 1.8rem;
-  color: #ffd700;
+  color: var(--color-secondary);
   margin-bottom: 1rem;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-accent);
 }
 
 .formPlaceholder p {
   font-size: 1.1rem;
-  color: #fffaf0;
+  color: var(--color-text-main);
   opacity: 0.8;
   margin-bottom: 0.5rem;
 }
@@ -244,12 +252,10 @@
   .contact {
     padding: 4rem 1rem;
   }
-
   .formPlaceholder {
     padding: 2rem;
     min-height: 300px;
   }
-
   .formIcon {
     font-size: 3.5rem;
   }

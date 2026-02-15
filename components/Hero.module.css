@@ -38,7 +38,7 @@
   gap: 1rem;
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
-  color: #ffd700;
+  color: var(--color-secondary);
 }
 
 .wave {
@@ -70,8 +70,8 @@
 .title {
   font-size: clamp(2.5rem, 6vw, 5rem);
   margin-bottom: 1rem;
-  font-family: "Playfair Display", Georgia, serif;
-  background: linear-gradient(135deg, #8b0000 0%, #dc143c 50%, #ffd700 100%);
+  font-family: var(--font-accent);
+  background: var(--gradient-festive);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -80,7 +80,7 @@
 
 .cursor {
   animation: blink 1s step-end infinite;
-  color: #ffd700;
+  color: var(--color-secondary);
 }
 
 @keyframes blink {
@@ -96,18 +96,24 @@
 
 .subtitle {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
-  color: #dc143c;
+  color: var(--color-primary);
   margin-bottom: 1.5rem;
   font-weight: 600;
 }
 
-.description {
+.description,
+.docstring {
   font-size: clamp(1rem, 1.5vw, 1.2rem);
-  color: #fffaf0;
-  opacity: 0.9;
+  color: var(--color-text-muted);
   max-width: 600px;
   margin: 0 auto 3rem;
   line-height: 1.8;
+}
+
+.docstring {
+  font-family: var(--font-accent);
+  font-style: italic;
+  white-space: pre-line;
 }
 
 .ctas {
@@ -119,35 +125,35 @@
 
 .btn {
   padding: 1rem 2.5rem;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-main);
 }
 
 .btnPrimary {
-  background: linear-gradient(135deg, #8b0000 0%, #dc143c 100%);
+  background: var(--gradient-brand);
   color: #fff;
-  box-shadow: 0 4px 16px rgba(220, 20, 60, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .btnPrimary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(220, 20, 60, 0.5);
+  box-shadow: var(--shadow-glow);
 }
 
 .btnSecondary {
   background: transparent;
-  color: #ffd700;
-  border: 2px solid #ffd700;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 
 .btnSecondary:hover {
-  background: #ffd700;
-  color: #0a0a0a;
+  background: var(--color-primary);
+  color: var(--color-bg-base);
   transform: translateY(-3px);
 }
 
@@ -165,7 +171,7 @@
 .ornament {
   position: absolute;
   font-size: 3rem;
-  opacity: 0.3;
+  opacity: 0.2;
   animation: float 4s ease-in-out infinite;
 }
 
@@ -174,13 +180,11 @@
   left: 10%;
   animation-delay: 0s;
 }
-
 .ornament:nth-child(2) {
   top: 60%;
   right: 15%;
   animation-delay: 1s;
 }
-
 .ornament:nth-child(3) {
   bottom: 20%;
   left: 20%;
@@ -206,7 +210,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  color: #ffd700;
+  color: var(--color-secondary);
   font-size: 0.9rem;
   animation: bounce 2s ease-in-out infinite;
 }
@@ -224,15 +228,15 @@
 .mouse {
   width: 25px;
   height: 40px;
-  border: 2px solid #ffd700;
-  border-radius: 15px;
+  border: 2px solid var(--color-secondary);
+  border-radius: 12px;
   position: relative;
 }
 
 .wheel {
   width: 4px;
   height: 8px;
-  background: #ffd700;
+  background: var(--color-secondary);
   border-radius: 2px;
   position: absolute;
   top: 8px;
@@ -256,17 +260,14 @@
   .hero {
     padding: 5rem 1rem 3rem;
   }
-
   .ctas {
     flex-direction: column;
     align-items: center;
   }
-
   .btn {
     width: 100%;
     max-width: 300px;
   }
-
   .decorations {
     display: none;
   }

@@ -2,8 +2,18 @@
 
 import { useState } from "react";
 import styles from "./BlogPosts.module.css";
+import { themeConfig } from "@/theme-config";
 
 const blogPosts = [
+  {
+    title:
+      "🏥 RepoDoctor - AI-Powered Repository Health Analysis with GitHub Copilot CLI",
+    excerpt: "AI-powered repository health analysis tool.",
+    date: "Feb 12, 2026",
+    readTime: "5 min read",
+    category: ["Python", "Copilot CLI", "AI"],
+    url: "https://dev.to/k1lgor/repodoctor-ai-powered-repository-health-analysis-with-github-copilot-cli-36l4",
+  },
   {
     title: "Understanding Linux Commands - A Comprehensive Guide",
     excerpt:
@@ -148,11 +158,13 @@ const ITEMS_PER_PAGE = 6;
 
 export default function BlogPosts() {
   const [currentPage, setCurrentPage] = useState(1);
+  const theme = themeConfig.theme;
+  const isPythonist = theme === "pythonist";
 
   const totalPages = Math.ceil(blogPosts.length / ITEMS_PER_PAGE);
   const currentPosts = blogPosts.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
+    currentPage * ITEMS_PER_PAGE,
   );
 
   const handlePageChange = (pageNumber: number) => {
@@ -162,12 +174,17 @@ export default function BlogPosts() {
       blogSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <section id="blog" className={styles.blog}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Recent Blog Posts</h2>
+        <h2 className={styles.sectionTitle}>
+          {isPythonist ? "import blog_posts" : "Recent Blog Posts"}
+        </h2>
         <p className={styles.subtitle}>
-          Sharing knowledge and insights from my development journey
+          {isPythonist
+            ? "# Reading insights from the documentation"
+            : "Sharing knowledge and insights from my development journey"}
         </p>
 
         <div className={styles.grid}>
@@ -195,7 +212,9 @@ export default function BlogPosts() {
                 <span className={styles.readTime}>⏱️ {post.readTime}</span>
               </div>
 
-              <div className={styles.readMore}>Read More →</div>
+              <div className={styles.readMore}>
+                {isPythonist ? "read_more()" : "Read More →"}
+              </div>
             </a>
           ))}
         </div>

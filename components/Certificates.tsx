@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./Certificates.module.css";
+import { themeConfig } from "@/theme-config";
 
 const certificates = [
   {
@@ -53,11 +54,14 @@ const ITEMS_PER_PAGE = 6;
 
 export default function Certificates() {
   const [currentPage, setCurrentPage] = useState(1);
+  const theme = themeConfig.theme;
+  const isChristmas = theme === "christmas";
+  const isPythonist = theme === "pythonist";
 
   const totalPages = Math.ceil(certificates.length / ITEMS_PER_PAGE);
   const currentCertificates = certificates.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
+    currentPage * ITEMS_PER_PAGE,
   );
 
   const handlePageChange = (pageNumber: number) => {
@@ -70,9 +74,15 @@ export default function Certificates() {
   return (
     <section id="certificates" className={styles.certificates}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Certificates & Achievements</h2>
+        <h2 className={styles.sectionTitle}>
+          {isPythonist
+            ? "class Certificates(Awards):"
+            : "Certificates & Achievements"}
+        </h2>
         <p className={styles.subtitle}>
-          Professional certifications and continuous learning milestones
+          {isPythonist
+            ? "# Verified qualifications and technical proofs"
+            : "Professional certifications and continuous learning milestones"}
         </p>
 
         <div className={styles.grid}>
@@ -82,7 +92,9 @@ export default function Certificates() {
               className={styles.certCard}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={styles.badge}>🏆</div>
+              <div className={styles.badge}>
+                {isPythonist ? "🏆" : isChristmas ? "🎁" : "🎖️"}
+              </div>
 
               <h3 className={styles.name}>{cert.name}</h3>
               <p className={styles.issuer}>{cert.issuer}</p>
@@ -92,14 +104,12 @@ export default function Certificates() {
                   <span className={styles.label}>Issued:</span>
                   <span className={styles.value}>{cert.date}</span>
                 </div>
-                <div className={styles.detail}>
-                  {cert.credentialId && (
-                    <>
-                      <span className={styles.label}>ID:</span>
-                      <span className={styles.value}>{cert.credentialId}</span>
-                    </>
-                  )}
-                </div>
+                {cert.credentialId && (
+                  <div className={styles.detail}>
+                    <span className={styles.label}>ID:</span>
+                    <span className={styles.value}>{cert.credentialId}</span>
+                  </div>
+                )}
               </div>
 
               <a
@@ -117,7 +127,7 @@ export default function Certificates() {
                 rel="noopener noreferrer"
                 aria-disabled={!cert.verifyUrl || cert.verifyUrl === "#"}
               >
-                Verify Certificate →
+                {isPythonist ? "verify_cert()" : "Verify Certificate →"}
               </a>
             </div>
           ))}

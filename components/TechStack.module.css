@@ -1,7 +1,7 @@
 .techStack {
   padding: 6rem 2rem;
   position: relative;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--color-bg-base);
 }
 
 .container {
@@ -13,8 +13,9 @@
   text-align: center;
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   margin-bottom: 1rem;
-  color: #ffd700;
+  color: var(--color-secondary);
   position: relative;
+  font-family: var(--font-accent);
 }
 
 .sectionTitle::after {
@@ -22,7 +23,7 @@
   display: block;
   width: 100px;
   height: 4px;
-  background: linear-gradient(90deg, #dc143c, #ffd700);
+  background: var(--gradient-festive);
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -30,7 +31,7 @@
 .subtitle {
   text-align: center;
   font-size: 1.2rem;
-  color: #fffaf0;
+  color: var(--color-text-main);
   opacity: 0.8;
   margin-bottom: 4rem;
 }
@@ -42,10 +43,10 @@
 }
 
 .categoryCard {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  border-radius: 16px;
+  background: var(--color-bg-surface);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   padding: 2rem;
   transition: all 0.3s ease;
   animation: fadeInUp 0.6s ease-out backwards;
@@ -53,15 +54,15 @@
 
 .categoryCard:hover {
   transform: translateY(-5px);
-  border-color: #ffd700;
-  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-glow);
 }
 
 .categoryTitle {
   font-size: 1.5rem;
-  color: #ffd700;
+  color: var(--color-secondary);
   margin-bottom: 1.5rem;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-accent);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -79,22 +80,22 @@
   gap: 0.5rem;
   background: rgba(0, 0, 0, 0.2);
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   font-size: 0.9rem;
-  color: #fffaf0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
   transition: all 0.2s ease;
 }
 
 .skillItem:hover {
-  background: rgba(220, 20, 60, 0.2);
-  border-color: #dc143c;
+  background: var(--color-bg-surface);
+  border-color: var(--color-primary);
   transform: scale(1.05);
 }
 
 .icon {
   font-size: 1.2rem;
-  color: #ffd700;
+  color: var(--color-secondary);
 }
 
 @keyframes fadeInUp {
@@ -112,7 +113,6 @@
   .techStack {
     padding: 4rem 1rem;
   }
-
   .grid {
     grid-template-columns: 1fr;
   }

@@ -2,10 +2,17 @@
 
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
+import { themeConfig } from "@/theme-config";
 
 export default function Hero() {
   const [text, setText] = useState("");
-  const fullText = "Hi, I'm Plamen Ivanov";
+  const theme = themeConfig.theme;
+  const isChristmas = theme === "christmas";
+  const isPythonist = theme === "pythonist";
+
+  const fullText = isPythonist
+    ? "import plamen_ivanov"
+    : "Hi, I'm Plamen Ivanov";
 
   useEffect(() => {
     let index = 0;
@@ -18,15 +25,19 @@ export default function Hero() {
       }
     }, 100);
     return () => clearInterval(timer);
-  }, []);
+  }, [fullText]);
 
   return (
     <section id="home" className={styles.hero}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.greeting}>
-            <span className={styles.wave}>👋</span>
-            <span className={styles.greetingText}>Welcome to my portfolio</span>
+            <span className={styles.wave}>{isPythonist ? "🐍" : "👋"}</span>
+            <span className={styles.greetingText}>
+              {isPythonist
+                ? "from future import success"
+                : "Welcome to my portfolio"}
+            </span>
           </div>
 
           <h1 className={styles.title}>
@@ -35,13 +46,25 @@ export default function Hero() {
           </h1>
 
           <p className={styles.subtitle}>
-            Automation Specialist | Productivity Enhancer | Problem Solver
+            {isPythonist
+              ? "DevOps Engineer | Automation Specialist | Problem Solver"
+              : "Automation Specialist | Productivity Enhancer | Problem Solver"}
           </p>
 
-          <p className={styles.description}>
-            I automate manual processes and build tools that enhance team
-            productivity. Results-driven and thrive on challenges that expand
-            knowledge and problem-solving skills.
+          <p className={isPythonist ? styles.docstring : styles.description}>
+            {isPythonist ? (
+              <>
+                {`"""`}
+                <br />
+                I automate manual processes and build tools that enhance team
+                productivity. Results-driven and thrive on challenges that
+                expand knowledge and problem-solving skills.
+                <br />
+                {`"""`}
+              </>
+            ) : (
+              "I automate manual processes and build tools that enhance team productivity. Results-driven and thrive on challenges that expand knowledge and problem-solving skills."
+            )}
           </p>
 
           <div className={styles.ctas}>
@@ -53,7 +76,7 @@ export default function Hero() {
               }
               className={`${styles.btn} ${styles.btnPrimary}`}
             >
-              View My Work
+              {isPythonist ? "run_projects()" : "View My Work"}
             </button>
             <button
               onClick={() =>
@@ -63,16 +86,18 @@ export default function Hero() {
               }
               className={`${styles.btn} ${styles.btnSecondary}`}
             >
-              Get In Touch
+              {isPythonist ? "class Contact:" : "Get In Touch"}
             </button>
           </div>
         </div>
 
-        <div className={styles.decorations}>
-          <div className={styles.ornament}>🎄</div>
-          <div className={styles.ornament}>⭐</div>
-          <div className={styles.ornament}>🎁</div>
-        </div>
+        {isChristmas && (
+          <div className={styles.decorations}>
+            <div className={styles.ornament}>🎄</div>
+            <div className={styles.ornament}>⭐</div>
+            <div className={styles.ornament}>🎁</div>
+          </div>
+        )}
       </div>
 
       <div className={styles.scrollIndicator}>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import styles from "./Projects.module.css";
+import { themeConfig } from "@/theme-config";
 
 const projects = [
   {
@@ -30,6 +31,14 @@ const projects = [
     tech: ["Next.js", "TypeScript", "OpenAI API", "TailwindCSS", "Vercel"],
     image: "/assets/fpl-blog.png",
     liveUrl: "https://fpl-blog.site/",
+  },
+  {
+    title: "RepoDoctor",
+    description:
+      "🩺 AI-powered repository health analysis tool. Automated code quality checks, bloat detection, onboarding guides, and security audits using GitHub Copilot CLI. Zero configuration required.",
+    tech: ["Python", "Copilot CLI", "Typer", "Pydantic", "Rich"],
+    image: "/assets/repodoctor.png",
+    githubUrl: "https://github.com/k1lgor/RepoDoctor",
   },
   {
     title: "Hook Forge",
@@ -117,27 +126,33 @@ const ITEMS_PER_PAGE = 6;
 
 export default function Projects() {
   const [currentPage, setCurrentPage] = useState(1);
+  const theme = themeConfig.theme;
+  const isPythonist = theme === "pythonist";
 
   const totalPages = Math.ceil(projects.length / ITEMS_PER_PAGE);
   const currentProjects = projects.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
+    currentPage * ITEMS_PER_PAGE,
   );
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    // Optional: Scroll to top of projects section
     const projectsSection = document.getElementById("projects");
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <section id="projects" className={styles.projects}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Featured Projects</h2>
+        <h2 className={styles.sectionTitle}>
+          {isPythonist ? "def featured_projects():" : "Featured Projects"}
+        </h2>
         <p className={styles.subtitle}>
-          A selection of my recent work and personal projects
+          {isPythonist
+            ? "# Yielding high-quality software solutions"
+            : "A selection of my recent work and personal projects"}
         </p>
 
         <div className={styles.grid}>
@@ -169,14 +184,16 @@ export default function Projects() {
                   >
                     Live Demo →
                   </a>
-                  <a
-                    href={project.githubUrl}
-                    className={styles.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub →
-                  </a>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      className={styles.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub →
+                    </a>
+                  )}
                 </div>
               </div>
 

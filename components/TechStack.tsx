@@ -28,6 +28,7 @@ import { BiBrain } from "react-icons/bi";
 import styles from "./TechStack.module.css";
 import { FaOpensuse, FaRedhat, FaDebian } from "react-icons/fa6";
 import { GrArchlinux } from "react-icons/gr";
+import { themeConfig } from "@/theme-config";
 
 const techCategories = [
   {
@@ -68,7 +69,7 @@ const techCategories = [
       { name: "Git", icon: <FaGitAlt /> },
       { name: "GitHub", icon: <SiGithub /> },
       { name: "Bitbucket", icon: <FaBitbucket /> },
-      { name: "ClearCase", icon: <FaGitAlt /> }, // Using Git icon as fallback
+      { name: "ClearCase", icon: <FaGitAlt /> },
       { name: "Jira", icon: <FaJira /> },
       { name: "Confluence", icon: <FaConfluence /> },
     ],
@@ -100,12 +101,19 @@ const techCategories = [
 ];
 
 export default function TechStack() {
+  const theme = themeConfig.theme;
+  const isPythonist = theme === "pythonist";
+
   return (
     <section id="skills" className={styles.techStack}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Technical Arsenal</h2>
+        <h2 className={styles.sectionTitle}>
+          {isPythonist ? "import technical_arsenal" : "Technical Arsenal"}
+        </h2>
         <p className={styles.subtitle}>
-          Tools and technologies I use to build scalable solutions
+          {isPythonist
+            ? "# Loading high-performance modular toolset"
+            : "Tools and technologies I use to build scalable solutions"}
         </p>
 
         <div className={styles.grid}>

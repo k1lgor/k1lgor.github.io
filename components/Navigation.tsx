@@ -2,8 +2,12 @@
 
 import { useEffect, useState } from "react";
 import styles from "./Navigation.module.css";
+import { themeConfig } from "@/theme-config";
 
 export default function Navigation() {
+  const theme = themeConfig.theme;
+  const isChristmas = theme === "christmas";
+  const isPythonist = theme === "pythonist";
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -24,14 +28,17 @@ export default function Navigation() {
   };
 
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
-    { id: "blog", label: "Blog" },
-    { id: "certificates", label: "Certificates" },
-    { id: "contact", label: "Contact" },
+    { id: "home", label: isPythonist ? "import home" : "Home" },
+    { id: "about", label: isPythonist ? "from about import me" : "About" },
+    { id: "skills", label: isPythonist ? "import skills" : "Skills" },
+    { id: "experience", label: isPythonist ? "import exp" : "Experience" },
+    { id: "projects", label: isPythonist ? "import projects" : "Projects" },
+    { id: "blog", label: isPythonist ? "import blog" : "Blog" },
+    {
+      id: "certificates",
+      label: isPythonist ? "import certs" : "Certificates",
+    },
+    { id: "contact", label: isPythonist ? "import contact" : "Contact" },
   ];
 
   return (
@@ -39,7 +46,9 @@ export default function Navigation() {
       <div className={styles.container}>
         <div className={styles.logo}>
           <span className={styles.logoText}>Plamen Ivanov</span>
-          <span className={styles.logoIcon}>🎄</span>
+          <span className={styles.logoIcon}>
+            {isPythonist ? "🐍" : isChristmas ? "🎄" : "⚡"}
+          </span>
         </div>
 
         <button

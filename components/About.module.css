@@ -12,8 +12,9 @@
   text-align: center;
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   margin-bottom: 4rem;
-  color: #ffd700;
+  color: var(--color-secondary);
   position: relative;
+  font-family: var(--font-accent);
 }
 
 .sectionTitle::after {
@@ -21,7 +22,7 @@
   display: block;
   width: 100px;
   height: 4px;
-  background: linear-gradient(90deg, #dc143c, #ffd700);
+  background: var(--gradient-festive);
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -44,17 +45,13 @@
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(220, 20, 60, 0.2),
-    rgba(255, 215, 0, 0.2)
-  );
-  backdrop-filter: blur(10px);
-  border: 3px solid rgba(255, 215, 0, 0.3);
+  background: var(--color-bg-surface);
+  backdrop-filter: var(--glass-blur);
+  border: 3px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-md);
   position: relative;
   animation: float 4s ease-in-out infinite;
 }
@@ -114,15 +111,15 @@
 
 .subtitle {
   font-size: 1.8rem;
-  color: #dc143c;
+  color: var(--color-primary);
   margin-bottom: 1.5rem;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-accent);
 }
 
 .text p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #fffaf0;
+  color: var(--color-text-main);
   opacity: 0.9;
   margin-bottom: 1.5rem;
 }
@@ -139,17 +136,17 @@
   gap: 1rem;
   align-items: flex-start;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  border-radius: 12px;
+  background: var(--color-bg-surface);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   transition: all 0.3s ease;
 }
 
 .highlight:hover {
   transform: translateX(10px);
-  border-color: #ffd700;
-  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.2);
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-glow);
 }
 
 .icon {
@@ -159,9 +156,9 @@
 
 .highlight h4 {
   font-size: 1.2rem;
-  color: #ffd700;
+  color: var(--color-secondary);
   margin-bottom: 0.5rem;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-main);
 }
 
 .highlight p {
@@ -175,12 +172,10 @@
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-
   .imagePlaceholder {
     width: 250px;
     height: 250px;
   }
-
   .avatar {
     font-size: 6rem;
   }
@@ -190,21 +185,11 @@
   .about {
     padding: 4rem 1rem;
   }
-
   .imagePlaceholder {
     width: 200px;
     height: 200px;
   }
-
   .avatar {
     font-size: 5rem;
-  }
-
-  .highlights {
-    gap: 1rem;
-  }
-
-  .highlight {
-    padding: 1rem;
   }
 }

@@ -1,6 +1,7 @@
 .experience {
   padding: 6rem 2rem;
   position: relative;
+  background: var(--color-bg-base);
 }
 
 .container {
@@ -12,8 +13,9 @@
   text-align: center;
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   margin-bottom: 1rem;
-  color: #ffd700;
+  color: var(--color-secondary);
   position: relative;
+  font-family: var(--font-accent);
 }
 
 .sectionTitle::after {
@@ -21,7 +23,7 @@
   display: block;
   width: 100px;
   height: 4px;
-  background: linear-gradient(90deg, #dc143c, #ffd700);
+  background: var(--gradient-festive);
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -29,7 +31,7 @@
 .subtitle {
   text-align: center;
   font-size: 1.2rem;
-  color: #fffaf0;
+  color: var(--color-text-main);
   opacity: 0.8;
   margin-bottom: 4rem;
 }
@@ -46,7 +48,7 @@
   top: 0;
   bottom: 0;
   width: 3px;
-  background: linear-gradient(180deg, #dc143c, #ffd700);
+  background: var(--gradient-brand);
   border-radius: 2px;
 }
 
@@ -94,10 +96,10 @@
 }
 
 .timelineContent {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  border-radius: 16px;
+  background: var(--color-bg-surface);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   padding: 2rem;
   margin-left: 2rem;
   transition: all 0.3s ease;
@@ -105,13 +107,13 @@
 
 .timelineContent:hover {
   transform: translateX(10px);
-  border-color: #ffd700;
-  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-glow);
 }
 
 .period {
   display: inline-block;
-  background: linear-gradient(135deg, #dc143c, #ffd700);
+  background: var(--gradient-brand);
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -122,23 +124,22 @@
 
 .role {
   font-size: 1.5rem;
-  color: #ffd700;
+  color: var(--color-secondary);
   margin-bottom: 0.5rem;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-accent);
 }
 
 .company {
   font-size: 1.2rem;
-  color: #dc143c;
+  color: var(--color-primary);
   margin-bottom: 1rem;
   font-weight: 600;
-  font-family: "Inter", sans-serif;
 }
 
 .description {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #fffaf0;
+  color: var(--color-text-main);
   opacity: 0.9;
   margin-bottom: 1.5rem;
 }
@@ -156,54 +157,45 @@
   align-items: flex-start;
   gap: 0.75rem;
   font-size: 1rem;
-  color: #fffaf0;
+  color: var(--color-text-main);
   opacity: 0.85;
 }
 
 .checkmark {
-  color: #0b6623;
+  color: var(--color-secondary);
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   flex-shrink: 0;
-  background: rgba(11, 102, 35, 0.2);
+  background: var(--color-bg-surface);
   width: 24px;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 2px solid #0b6623;
+  border: 2px solid var(--color-secondary);
 }
 
 @media (max-width: 768px) {
   .experience {
     padding: 4rem 1rem;
   }
-
   .timeline {
     padding-left: 1.5rem;
   }
-
   .timelineMarker {
     left: -2rem;
     width: 40px;
     height: 40px;
   }
-
   .ornament {
     font-size: 1.5rem;
   }
-
   .timelineContent {
     margin-left: 1.5rem;
     padding: 1.5rem;
   }
-
   .role {
     font-size: 1.3rem;
-  }
-
-  .company {
-    font-size: 1.1rem;
   }
 }
