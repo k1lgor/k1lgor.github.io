@@ -22,7 +22,10 @@ export default function Snowfall() {
       duration: 10 + Math.random() * 10,
       size: 0.5 + Math.random() * 1,
     }));
-    setSnowflakes(flakes);
+    // Using setTimeout to avoid synchronous setState inside useEffect (lint rule)
+    setTimeout(() => {
+      setSnowflakes(flakes);
+    }, 0);
   }, []);
 
   return (
