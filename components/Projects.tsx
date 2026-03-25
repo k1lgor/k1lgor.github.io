@@ -6,6 +6,14 @@ import { themeConfig } from "@/theme-config";
 
 const projects = [
   {
+    title: "Mega-Mind Skills 🧠",
+    description:
+      "The ultimate AI orchestration skill library for Antigravity, Claude, Copilot, Codex, OpenCode, and more. 59 skills organized into Core Workflow, Domain Expert, and Meta-Learning categories — with a master /mega-mind orchestrator that routes, chains, and tracks every task.",
+    tech: ["AI", "Markdown", "Claude", "Copilot", "Antigravity", "Codex", "OpenCode"],
+    image: "/assets/mega-mind-skills.png",
+    githubUrl: "https://github.com/k1lgor/mega-mind-skills",
+  },
+  {
     title: "Container Diet 🐳",
     description:
       'Container Diet is a futuristic, AI-powered CLI tool that analyzes your Docker images and Dockerfiles to provide actionable, "sassy but helpful" optimization advice. It helps you reduce image size, improve security, and follow best practices.',
@@ -176,14 +184,16 @@ export default function Projects() {
                   </div>
                 )}
                 <div className={styles.overlay}>
-                  <a
-                    href={project.liveUrl}
-                    className={styles.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Live Demo →
-                  </a>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      className={styles.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Live Demo →
+                    </a>
+                  )}
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
