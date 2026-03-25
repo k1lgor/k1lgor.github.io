@@ -42,9 +42,9 @@ export default function About() {
             </p>
             <p>
               I am results-driven and thrive on challenges that expand my
-              knowledge and problem-solving skills. Whether it's optimizing
-              deployment workflows or implementing infrastructure as code, I'm
-              always looking for ways to improve efficiency.
+              knowledge and problem-solving skills. Whether it&apos;s optimizing
+              deployment workflows or implementing infrastructure as code,
+              I&apos;m always looking for ways to improve efficiency.
             </p>
 
             <div className={styles.highlights}>
