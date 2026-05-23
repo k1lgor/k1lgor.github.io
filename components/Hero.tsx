@@ -32,7 +32,7 @@ export default function Hero() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.greeting}>
-            <span className={styles.wave}>{isPythonist ? "🐍" : "👋"}</span>
+            <span className={styles.wave} aria-hidden="true">{isPythonist ? "🐍" : "👋"}</span>
             <span className={styles.greetingText}>
               {isPythonist
                 ? "from future import success"
@@ -92,7 +92,7 @@ export default function Hero() {
         </div>
 
         {isChristmas && (
-          <div className={styles.decorations}>
+          <div className={styles.decorations} aria-hidden="true">
             <div className={styles.ornament}>🎄</div>
             <div className={styles.ornament}>⭐</div>
             <div className={styles.ornament}>🎁</div>

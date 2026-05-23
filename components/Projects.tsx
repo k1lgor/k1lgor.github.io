@@ -1,10 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import styles from "./Projects.module.css";
 import { themeConfig } from "@/theme-config";
 
 const projects = [
+  {
+    title: "Pantheon — pi-gods 🏛️",
+    description:
+      "A self-orchestrating 13-deity development pipeline for pi-coding-agent. Each god owns a domain — Janus routes, Minerva specs, Vulcan builds, Mercury ships. Autonomous handoffs, zero human intervention from spec to deployment.",
+    tech: ["pi-coding-agent", "TypeScript"],
+    image:
+      "https://raw.githubusercontent.com/k1lgor/pi-gods/main/assets/cover.png",
+    githubUrl: "https://github.com/k1lgor/pi-gods",
+  },
   {
     title: "Mega-Mind Skills 🧠",
     description:
@@ -173,10 +183,13 @@ export default function Projects() {
               <div className={styles.imageWrapper}>
                 {project.image.startsWith("http") ||
                 project.image.startsWith("/") ? (
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
                     className={styles.projectImage}
+                    style={{ objectFit: "cover" }}
                   />
                 ) : (
                   <div className={styles.imagePlaceholder}>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./Preloader.module.css";
 import { themeConfig } from "@/theme-config";
 
@@ -14,36 +14,49 @@ export default function Preloader() {
   const isPythonist = theme === "pythonist";
   const isTerminal = theme === "terminal";
 
-  const pythonLines = [
-    ">>> import sys",
-    ">>> import plamen_ivanov",
-    ">>> sys.version",
-    "'3.12.0 (tags/v3.12.0:0fb3730, Oct 11 2023)'",
-    ">>> plamen_ivanov.status",
-    "{'engine': 'stable', 'uptime': '0ms'}",
-    ">>> plamen_ivanov.boot()",
-  ];
+  const pythonLines = useMemo(
+    () => [
+      ">>> import sys",
+      ">>> import plamen_ivanov",
+      ">>> sys.version",
+      "'3.12.0 (tags/v3.12.0:0fb3730, Oct 11 2023)'",
+      ">>> plamen_ivanov.status",
+      "{'engine': 'stable', 'uptime': '0ms'}",
+      ">>> plamen_ivanov.boot()",
+    ],
+    [],
+  );
 
-  const terminalLines = [
-    "$ ./initialize_portfolio.sh",
-    "Loading resources... [DONE]",
-    "Starting system services... [DONE]",
-    "Establishing secure connection... [DONE]",
-    "$ portfolio --start",
-  ];
+  const terminalLines = useMemo(
+    () => [
+      "$ ./initialize_portfolio.sh",
+      "Loading resources... [DONE]",
+      "Starting system services... [DONE]",
+      "Establishing secure connection... [DONE]",
+      "$ portfolio --start",
+    ],
+    [],
+  );
 
-  const defaultLines = [
-    "Starting system...",
-    "Loading configuration...",
-    "Connecting to services...",
-    "System ready.",
-  ];
+  const defaultLines = useMemo(
+    () => [
+      "Starting system...",
+      "Loading configuration...",
+      "Connecting to services...",
+      "System ready.",
+    ],
+    [],
+  );
 
-  const activeLines = isPythonist
-    ? pythonLines
-    : isTerminal
-      ? terminalLines
-      : defaultLines;
+  const activeLines = useMemo(
+    () =>
+      isPythonist
+        ? pythonLines
+        : isTerminal
+          ? terminalLines
+          : defaultLines,
+    [isPythonist, isTerminal, pythonLines, terminalLines, defaultLines],
+  );
 
   useEffect(() => {
     // Prevent scrolling while loading
@@ -71,7 +84,7 @@ export default function Preloader() {
       clearInterval(interval);
       document.body.style.overflow = "auto";
     };
-  }, []);
+  }, [activeLines]);
 
   if (!isVisible) return null;
 

@@ -92,7 +92,7 @@ export default function Certificates() {
               className={styles.certCard}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={styles.badge}>
+              <div className={styles.badge} aria-hidden="true">
                 {isPythonist ? "🏆" : isChristmas ? "🎁" : "🎖️"}
               </div>
 

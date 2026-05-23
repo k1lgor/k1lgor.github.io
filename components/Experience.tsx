@@ -4,14 +4,15 @@ import styles from "./Experience.module.css";
 const experiences = [
   {
     company: "ICT Strypes",
-    role: "Automation Specialist",
+    role: "DevOps Engineer",
     period: "Jun 2022 - Present",
     description:
-      "Spearheaded DevOps modernization and automation initiatives, significantly reducing operational overhead and accelerating deployment cycles through CI/CD optimization and custom tooling.",
+      "Spearheaded DevOps modernization and automation initiatives, reducing operational overhead through CI/CD optimization, pattern-driven infrastructure analysis, and custom tooling.",
     achievements: [
       "Reduced operational overhead by 40%+ through automated CI/CD pipelines and infrastructure provisioning",
       "Modernized CI/CD infrastructure by migrating Jenkins pipelines to GitHub Actions, accelerating deployment cycles",
       "Developed automation scripts in Python, Bash, and Golang to eliminate manual tasks and improve development workflows",
+      "Applied pattern-driven analysis to identify systemic bottlenecks across the delivery pipeline, enabling targeted optimisations that improved release reliability by 30%",
     ],
   },
   {
@@ -66,7 +67,7 @@ export default function Experience() {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className={styles.timelineMarker}>
-                <div className={styles.ornament}>
+                <div className={styles.ornament} aria-hidden="true">
                   {isPythonist ? "📦" : isChristmas ? "🎄" : "⚡"}
                 </div>
               </div>

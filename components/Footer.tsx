@@ -22,7 +22,10 @@ export default function Footer() {
             </h3>
             <p className={styles.tagline}>
               {isPythonist
-                ? "while alive: code_and_automate()"
+                ? (<>
+                  while alive:<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;code_and_automate()
+                </>)
                 : "Automating workflows, one script at a time"}
             </p>
           </div>
@@ -83,7 +86,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className={styles.decoration}>
+      <div className={styles.decoration} aria-hidden="true">
         {isPythonist ? (
           <>
             <span className={styles.ornament}>🐍</span>

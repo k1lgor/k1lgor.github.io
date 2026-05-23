@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { themeConfig } from "@/theme-config";
 import styles from "./About.module.css";
 
@@ -17,13 +18,15 @@ export default function About() {
           <div className={styles.imageWrapper}>
             <div className={styles.imagePlaceholder}>
               {/* <span className={styles.avatar}>👨‍💻</span> */}
-              <img
+              <Image
                 src="/assets/profile.png"
                 alt="Plamen Ivanov"
                 className={styles.profileImage}
+                width={200}
+                height={200}
               />
             </div>
-            <div className={styles.decoration}>
+            <div className={styles.decoration} aria-hidden="true">
               {isPythonist ? "🐍" : isChristmas ? "✨" : "⚙️"}
             </div>
           </div>
@@ -35,38 +38,38 @@ export default function About() {
                 : "Passionate DevOps Engineer"}
             </h3>
             <p>
-              I love automating manual processes and building tools that enhance
-              team productivity. With expertise in containerization, CI/CD
-              pipelines, and cloud infrastructure, I help teams deliver software
-              faster and more reliably.
+              I automate manual processes and build tools that enhance team
+              productivity — whether through containerisation, CI/CD pipelines,
+              or automation scripting. I look for patterns in how systems
+              behave and use what I find to make them faster and more reliable.
             </p>
             <p>
               I am results-driven and thrive on challenges that expand my
-              knowledge and problem-solving skills. Whether it&apos;s optimizing
-              deployment workflows or implementing infrastructure as code,
-              I&apos;m always looking for ways to improve efficiency.
+              knowledge and problem-solving skills. Whether optimising
+              deployment workflows or writing automation scripts,
+              I bring a systematic, data-informed approach to every project.
             </p>
 
             <div className={styles.highlights}>
               <div className={styles.highlight}>
-                <span className={styles.icon}>🎯</span>
+                <span className={styles.icon} aria-hidden="true">🔍</span>
                 <div>
-                  <h4>Mission-Driven</h4>
-                  <p>Focused on delivering impactful solutions</p>
+                  <h4>Pattern-Driven</h4>
+                  <p>Spotting systemic inefficiencies others miss</p>
                 </div>
               </div>
               <div className={styles.highlight}>
-                <span className={styles.icon}>💡</span>
+                <span className={styles.icon} aria-hidden="true">📊</span>
                 <div>
-                  <h4>Creative Thinker</h4>
-                  <p>Always exploring innovative approaches</p>
+                  <h4>Data-Informed</h4>
+                  <p>Quantitative reasoning guides every decision</p>
                 </div>
               </div>
               <div className={styles.highlight}>
-                <span className={styles.icon}>🚀</span>
+                <span className={styles.icon} aria-hidden="true">⚙️</span>
                 <div>
-                  <h4>Fast Learner</h4>
-                  <p>Constantly adapting to new technologies</p>
+                  <h4>Systematic Thinker</h4>
+                  <p>Methodical approach to complex problems</p>
                 </div>
               </div>
             </div>
