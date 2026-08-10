@@ -7,6 +7,16 @@ import { themeConfig } from "@/theme-config";
 
 const projects = [
   {
+    title: "Django Forge ⚒️",
+    description:
+      "Ask 3 questions. Get a production-ready Django project — custom User model, allauth, CI, and 11 optional layers (Docker, Celery, S3, health checks, audit, backups).",
+    tech: ["Python", "Django", "Docker", "Celery", "CI/CD"],
+    image:
+      "https://raw.githubusercontent.com/k1lgor/django-forge/main/logo.png",
+    liveUrl: "https://k1lgor.github.io/django-forge/",
+    githubUrl: "https://github.com/k1lgor/django-forge",
+  },
+  {
     title: "Pantheon — pi-gods 🏛️",
     description:
       "A self-orchestrating 13-deity development pipeline for pi-coding-agent. Each god owns a domain — Janus routes, Minerva specs, Vulcan builds, Mercury ships. Autonomous handoffs, zero human intervention from spec to deployment.",
