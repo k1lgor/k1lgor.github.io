@@ -191,6 +191,10 @@ export default function Projects() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={styles.imageWrapper}>
+                <span className={styles.cardBadge}>
+                  {String(index + 1).padStart(2, "0")}/
+                  {String(projects.length).padStart(2, "0")}
+                </span>
                 {project.image.startsWith("http") ||
                 project.image.startsWith("/") ? (
                   <Image
@@ -256,17 +260,33 @@ export default function Projects() {
               ← Previous
             </button>
 
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-              <button
-                key={page}
-                className={`${styles.pageBtn} ${
-                  currentPage === page ? styles.active : ""
-                }`}
-                onClick={() => handlePageChange(page)}
+            <div className={styles.levelMapWrap}>
+              <p className={styles.pageReadout}>
+                Page {currentPage} / {totalPages} · {projects.length} projects
+              </p>
+              <div
+                className={styles.levelMap}
+                role="navigation"
+                aria-label="Project pages"
               >
-                {page}
-              </button>
-            ))}
+                {projects.map((project, index) => {
+                  const page = Math.floor(index / ITEMS_PER_PAGE) + 1;
+                  return (
+                    <button
+                      key={project.title}
+                      className={`${styles.levelChip} ${
+                        page === currentPage ? styles.levelChipActive : ""
+                      }`}
+                      onClick={() => handlePageChange(page)}
+                      aria-label={`Go to project ${index + 1}: ${project.title}`}
+                      aria-current={page === currentPage ? "true" : undefined}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
 
             <button
               className={styles.navBtn}

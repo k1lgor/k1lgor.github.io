@@ -191,6 +191,23 @@
   }
 }
 
+.cardBadge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--color-border);
+  color: var(--color-secondary);
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -200,29 +217,50 @@
   flex-wrap: wrap;
 }
 
-.pageBtn {
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-main);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+.levelMapWrap {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: var(--font-main);
-  font-weight: 600;
+  gap: 0.75rem;
 }
 
-.pageBtn:hover:not(:disabled) {
+.pageReadout {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-main);
+  opacity: 0.85;
+  margin: 0;
+}
+
+.levelMap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  max-width: 420px;
+}
+
+.levelChip {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
   background: var(--color-bg-surface);
+  color: var(--color-text-muted);
+  font-family: var(--font-main);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.levelChip:hover {
   border-color: var(--color-secondary);
+  color: var(--color-secondary);
   transform: translateY(-2px);
 }
 
-.pageBtn.active {
+.levelChipActive {
   background: var(--color-secondary);
   color: var(--color-bg-base);
   border-color: var(--color-secondary);
@@ -249,8 +287,7 @@
   transform: translateX(5px);
 }
 
-.navBtn:disabled,
-.pageBtn:disabled {
+.navBtn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   border-color: var(--color-border);
