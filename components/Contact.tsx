@@ -1,5 +1,8 @@
 import { themeConfig } from "@/theme-config";
 import styles from "./Contact.module.css";
+import CopyButton from "./CopyButton";
+
+const EMAIL = "ivanov.iv.plamen@gmail.com";
 
 export default function Contact() {
   const theme = themeConfig.theme;
@@ -36,9 +39,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <h4>Email</h4>
-                  <a href="mailto:ivanov.iv.plamen@gmail.com">
-                    ivanov.iv.plamen@gmail.com
-                  </a>
+                  <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
                 </div>
               </div>
 
@@ -103,9 +104,26 @@ export default function Contact() {
               <h3>
                 {isPythonist ? "def send_message(self):" : "Send me a message"}
               </h3>
-              <p>Contact form coming soon!</p>
+              <p className={styles.replLine}>
+                {isPythonist
+                  ? `>>> email = "${EMAIL}"`
+                  : "Click to copy my email — one click, zero dead ends"}
+              </p>
+              <div className={styles.actionRow}>
+                <a
+                  className={`${styles.actionBtn} ${styles.mailtoBtn}`}
+                  href={`mailto:${EMAIL}?subject=${encodeURIComponent(
+                    "Portfolio inquiry",
+                  )}&body=${encodeURIComponent(
+                    "Hi Plamen,\n\nI found your portfolio and would like to get in touch.\n\n",
+                  )}`}
+                >
+                  {isPythonist ? "send_message()" : "Send Email →"}
+                </a>
+                <CopyButton text={EMAIL} />
+              </div>
               <p className={styles.formNote}>
-                For now, feel free to reach out via email or LinkedIn
+                No mail client? The address above is one click to copy
               </p>
             </div>
           </div>
